@@ -1,0 +1,46 @@
+
+<div class="mainContainer">
+  <div>
+    <img src="../assets/banner.jpeg" alt="" class="w-100">
+  </div>
+  <div class="cardSection">
+    <div class="row">
+      <div class="mb-3" *ngFor = "let item of cardList" [ngClass]="{'col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4':item.type == 'small','col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8' : item.type == 'large'}">
+        <div class="cards" *ngIf="item.type == 'small'">
+          <div class="cardImg">
+              <img [src]="item.image" alt="" class="w-100">
+          </div>
+          <div class="text-center p-3">
+            <strong>{{item.text}}</strong>
+          </div>
+          <div class="row userData">
+            <div class="col-4 text-center">{{item.like}}</div>
+            <div class="col-4 text-center">{{item.comment}}</div>
+            <div class="col-4 text-center">{{item.views}}</div>
+          </div>
+        </div>
+        <div class="cards" *ngIf="item.type == 'large'">
+          <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 p-0">
+              <div class="cardImg">
+                <img [src]="item.image" alt="" class="w-100">
+            </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 p-0 d-flex flex-column justify-content-end">
+              <div class="text-left p-3">
+                <h2 class="title">Health</h2>
+              <strong>{{item.text + ' ' + item.text}}</strong>  
+              <p class="mt-4">{{item.text + ' ' + item.text}}</p>
+              </div>
+              <div class="row userData">
+                <div class="col-4 text-center">{{item.like}}</div>
+                <div class="col-4 text-center">{{item.comment}}</div>
+                <div class="col-4 text-center">{{item.views}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
